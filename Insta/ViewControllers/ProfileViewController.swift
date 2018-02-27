@@ -38,12 +38,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserPostCell", for: indexPath) as! UserPostCell
         let post = posts[indexPath.item]
-        //        print(movie , "SuperheroViewController")
-//        if let posterPathString = movie["poster_path"] as? String {
-//            let baseURLString = "https://image.tmdb.org/t/p/w500/"
-//            let posterURL = URL(string: baseURLString + posterPathString)!
-//            cell.posterImageView.af_setImage(withURL: posterURL)
-//        }
         return cell
     }
     

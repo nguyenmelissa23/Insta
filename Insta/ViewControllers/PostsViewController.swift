@@ -35,6 +35,19 @@ class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
 
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! UITableViewCell
+        print("Segue:")
+        if let indexPath = tableView.indexPath(for: cell){
+        let post = self.posts[indexPath.row]
+        let navVC = segue.destination as! UINavigationController
+        let detailViewController = navVC.topViewController as! PostDetailViewController
+        detailViewController.post = [post]
+        print("VC", detailViewController)
+        print("send POST:", detailViewController.post)
+        }
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.posts.isEmpty {
@@ -76,6 +89,7 @@ class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func getPosts() {
         let query = PFQuery(className: "Post")
         query.includeKey("user")
+        query.includeKey("createAt")
         query.addDescendingOrder("createdAt")
         query.findObjectsInBackground { (posts: [PFObject]? , error: Error?) in
             if error == nil {
@@ -99,6 +113,7 @@ class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         refreshControl.beginRefreshing()
         let query = PFQuery(className: "Post")
         query.includeKey("user")
+        query.includeKey("createAt")
         query.addDescendingOrder("createdAt")
         query.findObjectsInBackground { (posts: [PFObject]? , error: Error?) in
             if error == nil {
@@ -113,6 +128,13 @@ class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
+    //Deselect row after it's selected to see post details
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let index = self.tableView.indexPathForSelectedRow{
+            self.tableView.deselectRow(at: index, animated: true)
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
