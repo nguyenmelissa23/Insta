@@ -65,6 +65,7 @@ class ComposeViewController: UIViewController, UINavigationControllerDelegate, U
         let newPost = PFObject(className: "Post")
         newPost["caption"] = postCaptionLabel.text
         newPost["image"] = parseImageFile
+        newPost["user"] = PFUser.current()
         newPost.saveInBackground { (success, error) in
             if success {
                 print("Success:", success)

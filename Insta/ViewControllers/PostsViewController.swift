@@ -21,42 +21,59 @@ class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 400
+        
+        self.getPosts()
+        self.tableView.reloadData()
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
-        if  posts != nil {
-            let post = posts[indexPath.row]
-            cell.imageCaptureLabel.text = post["capture"] as? String
-            cell.noPostsLabel.text = ""
-        } else {
-            cell.noPostsLabel.text = "No Posts"
-        }
+        let post = posts[indexPath.row]
+        cell.imageCaptureLabel.text = post["capture"] as? String
+        cell.usernameLabel.text = post["user"] as? String
         
+        let getParseImg = post["image"] as! PFFile
+        getParseImg.getDataInBackground { (imageData, error) in
+            if (error == nil) {
+                if let imageData = imageData{
+                    let img = UIImage(data: imageData)
+                    cell.imageView?.image = img
+                }
+            }
+        }
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if posts.isEmpty {
-            return 0
-        } else {
-            return posts.count
-        }
+        return posts.count
     }
     
-    
+    @objc func getPosts() {
+        let query = PFQuery(className: "Post")
+        query.includeKey("user")
+        query.addDescendingOrder("createdAt")
+        query.findObjectsInBackground { (posts: [PFObject]? , error: Error?) in
+            if error == nil {
+                print(posts!)
+                if let posts = posts {
+                    self.posts = posts
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
     
     @IBAction func onLogout(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.logout()
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 
     /*
     // MARK: - Navigation
