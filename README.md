@@ -14,7 +14,7 @@ The following **required** functionality is completed:
 - [x] User can take a photo, add a caption, and post it to "Instagram" (+2pt)
 - [x] User can view the last 20 posts submitted to "Instagram" (+2pt)
 - [x] User can pull to refresh the last 20 posts submitted to "Instagram" (+1pt)
-- [x] User can tap a post to view post details, including timestamp and caption (+2pt)
+- [x] User can tap a post to view post details, including timestamp and caption (+2pt) [UPDATED]
 
 The following **stretch** features are implemented:
 
@@ -39,7 +39,7 @@ The following **additional** features are implemented:
 
 - [x] Bar Button to Logout and Create New Post
 - [x] Tab for Home and Profile, which shows current user's username and profile pic
-- []
+
 
 
 
@@ -50,6 +50,7 @@ Here's a walkthrough of implemented user stories:
 
 <img src='https://imgur.com/10QBQUJ.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 <img src='https://imgur.com/PkPxAER.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/xGL7liC.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).

@@ -310,7 +310,7 @@
             </objects>
             <point key="canvasLocation" x="1877.5999999999999" y="984.55772113943033"/>
         </scene>
-        <!--Post Detail View Controller-->
+        <!--Post Detail-->
         <scene sceneID="Epn-RF-0Yk">
             <objects>
                 <viewController id="7df-t6-e26" customClass="PostDetailViewController" customModule="Insta" customModuleProvider="target" sceneMemberID="viewController">
@@ -362,7 +362,14 @@
                             <constraint firstItem="RjI-Xj-oXx" firstAttribute="top" secondItem="QRc-ny-mpk" secondAttribute="bottom" constant="8" id="vCF-dd-saG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="3wc-O5-Epe"/>
+                    <navigationItem key="navigationItem" title="Post Detail" leftItemsSupplementBackButton="YES" id="CYG-Qs-1I5">
+                        <barButtonItem key="backBarButtonItem" title="Back " id="9rm-Za-hJo"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="zJe-cL-Ofk">
+                            <connections>
+                                <action selector="backToHome:" destination="7df-t6-e26" id="xvY-pB-Sni"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="captionLabel" destination="Lvh-ej-XU6" id="Ws4-dz-duo"/>
                         <outlet property="postImage" destination="RjI-Xj-oXx" id="etN-70-wy2"/>
@@ -414,6 +421,7 @@
         <!--Navigation Controller-->
         <scene sceneID="bk5-1Q-zRz">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sS6-bW-TkZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RKr-9L-8Re" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PSM-ig-MTt">
@@ -425,7 +433,6 @@
                         <segue destination="7df-t6-e26" kind="relationship" relationship="rootViewController" id="2rv-it-TG3"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sS6-bW-TkZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="246" y="1776"/>
         </scene>
