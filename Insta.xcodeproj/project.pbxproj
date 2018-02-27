@@ -12,7 +12,6 @@
 		45E1EF979681A9EC327446EF /* Pods_Insta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A10753E9AF43B9C815548C /* Pods_Insta.framework */; };
 		FFB47C5B20448B4F0021E767 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB47C5A20448B4F0021E767 /* PostsViewController.swift */; };
 		FFB47C5D20448B6C0021E767 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB47C5C20448B6C0021E767 /* PostCell.swift */; };
-		FFB47C60204496200021E767 /* PhotoMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB47C5F204496200021E767 /* PhotoMapViewController.swift */; };
 		FFB47C62204497E40021E767 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB47C61204497E40021E767 /* ComposeViewController.swift */; };
 		FFC4E91B20448056002BA8BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC4E91A20448056002BA8BF /* AppDelegate.swift */; };
 		FFC4E91D20448056002BA8BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC4E91C20448056002BA8BF /* ViewController.swift */; };
@@ -52,7 +51,6 @@
 		F987F9EBCDFB053D17D0FA77 /* Pods-Insta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Insta/Pods-Insta.debug.xcconfig"; sourceTree = "<group>"; };
 		FFB47C5A20448B4F0021E767 /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		FFB47C5C20448B6C0021E767 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
-		FFB47C5F204496200021E767 /* PhotoMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMapViewController.swift; sourceTree = "<group>"; };
 		FFB47C61204497E40021E767 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		FFC4E91720448056002BA8BF /* Insta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC4E91A20448056002BA8BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 			children = (
 				FFC4E91C20448056002BA8BF /* ViewController.swift */,
 				FFB47C5A20448B4F0021E767 /* PostsViewController.swift */,
-				FFB47C5F204496200021E767 /* PhotoMapViewController.swift */,
 				FFB47C61204497E40021E767 /* ComposeViewController.swift */,
 			);
 			path = ViewControllers;
@@ -480,7 +477,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFB47C60204496200021E767 /* PhotoMapViewController.swift in Sources */,
 				FFB47C5B20448B4F0021E767 /* PostsViewController.swift in Sources */,
 				FFC4E91D20448056002BA8BF /* ViewController.swift in Sources */,
 				FFB47C62204497E40021E767 /* ComposeViewController.swift in Sources */,

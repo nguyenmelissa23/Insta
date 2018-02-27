@@ -24,6 +24,8 @@ class ComposeViewController: UIViewController, UINavigationControllerDelegate, U
         postImage.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.didTap(_:)))
         postImage.addGestureRecognizer(tapGesture)
+        
+        
 
     }
     
@@ -45,11 +47,9 @@ class ComposeViewController: UIViewController, UINavigationControllerDelegate, U
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+//        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
-        
         postImage.image = editedImage
-        
         dismiss(animated: true, completion: nil)
     }
     
@@ -70,7 +70,7 @@ class ComposeViewController: UIViewController, UINavigationControllerDelegate, U
             if success {
                 print("Success:", success)
             } else {
-                print(error?.localizedDescription)
+                print("\(error?.localizedDescription)")
             }
         }
         dismiss(animated: true, completion: nil)

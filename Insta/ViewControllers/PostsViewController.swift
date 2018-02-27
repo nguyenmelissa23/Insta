@@ -17,58 +17,101 @@ class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 400
-        
-        self.getPosts()
+//        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.estimatedRowHeight = 500
+        tableView.rowHeight = 500
         self.tableView.reloadData()
-        // Do any additional setup after loading the view.
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+        
+        let selectedRow: IndexPath? = tableView.indexPathForSelectedRow
+        if let selectedRowNotNill = selectedRow {
+            tableView.deselectRow(at: selectedRowNotNill, animated: true)
+        }
+
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.posts.isEmpty {
+            return 0
+        } else {
+            return posts.count
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
         let post = posts[indexPath.row]
-        cell.imageCaptureLabel.text = post["capture"] as? String
-        cell.usernameLabel.text = post["user"] as? String
-        
+        print("POST:", post)
+//        print("post createdat", post["_created_at"])
+//        Get image data and set that to imageView
         let getParseImg = post["image"] as! PFFile
-        getParseImg.getDataInBackground { (imageData, error) in
+        getParseImg.getDataInBackground{(imageData, error) in
             if (error == nil) {
                 if let imageData = imageData{
                     let img = UIImage(data: imageData)
-                    cell.imageView?.image = img
+                    cell.postImage.image = img
+                    
+                    cell.imageCaptureLabel.text = post["caption"] as? String
+                    let user = post["user"] as? PFUser
+                    let username = "\(user!["username"]!)"
+                    if username != "username"{
+                        cell.usernameLabel.text = "\(user!["username"]!)"
+                    } else {
+                        cell.usernameLabel.text = "Unknown User"
+                    }
+                    
                 }
             }
         }
-
         return cell
     }
+
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
-    }
-    
-    @objc func getPosts() {
-        let query = PFQuery(className: "Post")
-        query.includeKey("user")
-        query.addDescendingOrder("createdAt")
-        query.findObjectsInBackground { (posts: [PFObject]? , error: Error?) in
-            if error == nil {
-                print(posts!)
-                if let posts = posts {
-                    self.posts = posts
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    }
+//    func getPosts() {
+//        let query = PFQuery(className: "Post")
+//        query.includeKey("user")
+//        query.addDescendingOrder("createdAt")
+//        query.findObjectsInBackground { (posts: [PFObject]? , error: Error?) in
+//            if error == nil {
+//                print(posts!)
+//                if let posts = posts {
+//                    self.posts = posts
+//                    self.tableView.reloadData()
+//                }
+//            }
+//        }
+//
+//    }
     
     @IBAction func onLogout(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.logout()
     }
+    
+   
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        refreshControl.beginRefreshing()
+        let query = PFQuery(className: "Post")
+        query.includeKey("user")
+        query.addDescendingOrder("createdAt")
+        query.findObjectsInBackground { (posts: [PFObject]? , error: Error?) in
+            if error == nil {
+//                print(posts!)
+                if let posts = posts {
+                    self.posts = posts
+                    self.tableView.reloadData()
+                    refreshControl.endRefreshing()
+                }
+            }
+        }
+        
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

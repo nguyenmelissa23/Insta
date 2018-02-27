@@ -14,14 +14,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UITextField!
     @IBOutlet weak var passwordLabel: UITextField!
     
+    var posts: [PFObject] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    
-    
-
     @IBAction func onSignup(_ sender: Any) {
         if ((usernameLabel.text?.isEmpty)! && (passwordLabel.text?.isEmpty)!) || (usernameLabel.text?.isEmpty)! || (passwordLabel.text?.isEmpty)! {
             let alertController = UIAlertController(title: "Empty Fields", message: "Please enter your username and/or password" , preferredStyle: .alert)
@@ -69,11 +68,56 @@ class ViewController: UIViewController {
                 self.present(alertController, animated: true)
             } else {
                 print("User logged in successfully")
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                let query = PFQuery(className: "Post")
+                query.includeKey("user")
+                query.includeKey("createdAt")
+                query.addDescendingOrder("createdAt")
+                query.findObjectsInBackground { (posts: [PFObject]? , error: Error?) in
+                    if error == nil {
+                        print(posts!)
+                        if let posts = posts {
+                            self.posts = posts
+                            self.performSegue(withIdentifier: "loginSegue", sender: sender)
+                        }
+                    }
+                }
+                
             }
         }
         
     }
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "loginSegue" {
+            let tabbarVC = segue.destination as! UITabBarController
+            print("tabbarVC", tabbarVC)
+            print("tabbarVC [0]", tabbarVC.viewControllers![0])
+            let navVC = tabbarVC.viewControllers![0] as! UINavigationController
+            let postsVC = navVC.topViewController as! PostsViewController
+            postsVC.posts = self.posts
+        }
+    }
+    
+    func firstTask(completion: (_ success: Bool) -> Void) {
+        completion(true)
+    }
+    
+    func getPosts() {
+        let query = PFQuery(className: "Post")
+        query.includeKey("user")
+        query.addDescendingOrder("createdAt")
+        query.findObjectsInBackground { (posts: [PFObject]? , error: Error?) in
+            if error == nil {
+                print(posts!)
+                if let posts = posts {
+                    self.posts = posts
+                }
+            }
+        }
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
