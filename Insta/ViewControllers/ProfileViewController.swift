@@ -9,20 +9,42 @@
 import UIKit
 import Parse
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource{
 
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var profileImage: UIImageView!
     
     @IBOutlet weak var usernameLabel: UILabel!
     
+    var posts: [[PFObject]] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getUserInfo()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
         profileImage.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.didTap))
         profileImage.addGestureRecognizer(tapGesture)
         
         // Do any additional setup after loading the view.
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserPostCell", for: indexPath) as! UserPostCell
+        let post = posts[indexPath.item]
+        //        print(movie , "SuperheroViewController")
+//        if let posterPathString = movie["poster_path"] as? String {
+//            let baseURLString = "https://image.tmdb.org/t/p/w500/"
+//            let posterURL = URL(string: baseURLString + posterPathString)!
+//            cell.posterImageView.af_setImage(withURL: posterURL)
+//        }
+        return cell
     }
     
     func getUserInfo(){

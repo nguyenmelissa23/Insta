@@ -94,6 +94,12 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Capture" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6d-zk-Ic9">
+                                                    <rect key="frame" x="8" y="423" width="359" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="bZv-BF-RkT">
                                                     <rect key="frame" x="0.0" y="40" width="375" height="375"/>
                                                     <constraints>
@@ -101,12 +107,6 @@
                                                         <constraint firstAttribute="width" constant="375" id="K2i-7h-yjw"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Capture" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6d-zk-Ic9">
-                                                    <rect key="frame" x="8" y="423" width="359" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="y6d-zk-Ic9" secondAttribute="trailing" constant="8" id="16Z-0y-6A9"/>
@@ -214,6 +214,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="osu-UB-q13"/>
                     <connections>
+                        <outlet property="collectionView" destination="N4b-lD-fnT" id="2gq-wb-VWa"/>
                         <outlet property="profileImage" destination="dyt-lp-iCB" id="f9Q-8Y-2Fq"/>
                         <outlet property="usernameLabel" destination="IVL-hP-adQ" id="3aG-Ad-BHX"/>
                     </connections>

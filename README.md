@@ -1,8 +1,8 @@
-# Project 4 - *Name of App Here*
+# Project 4 - *Insta*
 
-**Name of your app** is a photo sharing app using Parse as its backend.
+**Insta** is a photo sharing app using Parse as its backend.
 
-Time spent: **X** hours spent in total
+Time spent: **10** hours spent in total
 
 ## User Stories
 
