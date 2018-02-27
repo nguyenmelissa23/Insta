@@ -20,6 +20,8 @@
 		FFC4E92520448056002BA8BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFC4E92320448056002BA8BF /* LaunchScreen.storyboard */; };
 		FFC4E93020448057002BA8BF /* InstaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC4E92F20448057002BA8BF /* InstaTests.swift */; };
 		FFC4E93B20448057002BA8BF /* InstaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC4E93A20448057002BA8BF /* InstaUITests.swift */; };
+		FFF23416204532AC00F617DF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF23415204532AC00F617DF /* ProfileViewController.swift */; };
+		FFF2341B204536D600F617DF /* UserPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF2341A204536D600F617DF /* UserPostCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		FFC4E93620448057002BA8BF /* InstaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC4E93A20448057002BA8BF /* InstaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaUITests.swift; sourceTree = "<group>"; };
 		FFC4E93C20448057002BA8BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFF23415204532AC00F617DF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FFF2341A204536D600F617DF /* UserPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,7 @@
 				FFC4E91C20448056002BA8BF /* ViewController.swift */,
 				FFB47C5A20448B4F0021E767 /* PostsViewController.swift */,
 				FFB47C61204497E40021E767 /* ComposeViewController.swift */,
+				FFF23415204532AC00F617DF /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -153,8 +158,8 @@
 		FFC4E91920448056002BA8BF /* Insta */ = {
 			isa = PBXGroup;
 			children = (
-				FFB47C5C20448B6C0021E767 /* PostCell.swift */,
 				FFB47C5E20448C090021E767 /* ViewControllers */,
+				FFF234172045361D00F617DF /* Cells */,
 				FFC4E91A20448056002BA8BF /* AppDelegate.swift */,
 				FFC4E91E20448056002BA8BF /* Main.storyboard */,
 				FFC4E92120448056002BA8BF /* Assets.xcassets */,
@@ -180,6 +185,15 @@
 				FFC4E93C20448057002BA8BF /* Info.plist */,
 			);
 			path = InstaUITests;
+			sourceTree = "<group>";
+		};
+		FFF234172045361D00F617DF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FFB47C5C20448B6C0021E767 /* PostCell.swift */,
+				FFF2341A204536D600F617DF /* UserPostCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -477,7 +491,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFF23416204532AC00F617DF /* ProfileViewController.swift in Sources */,
 				FFB47C5B20448B4F0021E767 /* PostsViewController.swift in Sources */,
+				FFF2341B204536D600F617DF /* UserPostCell.swift in Sources */,
 				FFC4E91D20448056002BA8BF /* ViewController.swift in Sources */,
 				FFB47C62204497E40021E767 /* ComposeViewController.swift in Sources */,
 				FFC4E91B20448056002BA8BF /* AppDelegate.swift in Sources */,

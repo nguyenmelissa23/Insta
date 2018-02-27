@@ -26,11 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
         
-//        if PFUser.current() != nil {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//             view controller currently being set in Storyboard as default will be overridden
-//            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "postsViewController")
-//        }
+        if PFUser.current() != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            view controller currently being set in Storyboard as default will be overridden
+            let tabbarVC = storyboard.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
+            //            print("tabbarVC", tabbarVC)
+            //            print("tabbarVC [0]", tabbarVC.viewControllers![0])
+//            let navVC = tabbarVC.viewControllers![0] as! UINavigationController
+//            let postsVC = navVC as! PostsViewController
+            window?.rootViewController = tabbarVC
+            
+        }
         
         NotificationCenter.default.addObserver(forName: Notification.Name("didLogout"), object: nil, queue: OperationQueue.main) { (Notification) in
             print("Logout notification received")

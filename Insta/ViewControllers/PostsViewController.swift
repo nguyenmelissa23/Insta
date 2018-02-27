@@ -22,6 +22,7 @@ class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //        tableView.rowHeight = UITableViewAutomaticDimension
 //        tableView.estimatedRowHeight = 500
         tableView.rowHeight = 500
+        getPosts()
         self.tableView.reloadData()
         
         let refreshControl = UIRefreshControl()
@@ -72,21 +73,21 @@ class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
 
     
-//    func getPosts() {
-//        let query = PFQuery(className: "Post")
-//        query.includeKey("user")
-//        query.addDescendingOrder("createdAt")
-//        query.findObjectsInBackground { (posts: [PFObject]? , error: Error?) in
-//            if error == nil {
-//                print(posts!)
-//                if let posts = posts {
-//                    self.posts = posts
-//                    self.tableView.reloadData()
-//                }
-//            }
-//        }
-//
-//    }
+    func getPosts() {
+        let query = PFQuery(className: "Post")
+        query.includeKey("user")
+        query.addDescendingOrder("createdAt")
+        query.findObjectsInBackground { (posts: [PFObject]? , error: Error?) in
+            if error == nil {
+                print(posts!)
+                if let posts = posts {
+                    self.posts = posts
+                    self.tableView.reloadData()
+                }
+            }
+        }
+
+    }
     
     @IBAction func onLogout(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

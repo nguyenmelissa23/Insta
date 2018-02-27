@@ -159,7 +159,7 @@
         <!--Profile-->
         <scene sceneID="4WW-iO-URG">
             <objects>
-                <viewController id="Lus-hb-lPO" sceneMemberID="viewController">
+                <viewController id="Lus-hb-lPO" customClass="ProfileViewController" customModule="Insta" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LBc-Gs-oaO"/>
                         <viewControllerLayoutGuide type="bottom" id="Z5P-an-dZx"/>
@@ -190,7 +190,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="LU3-M9-eJR">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserPostCell" id="LU3-M9-eJR" customClass="UserPostCell" customModule="Insta" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="117" height="117"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -203,6 +203,9 @@
                                                 </imageView>
                                             </subviews>
                                         </view>
+                                        <connections>
+                                            <outlet property="userPostImage" destination="cgF-LW-Gp8" id="WvG-IU-xEM"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -210,10 +213,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="osu-UB-q13"/>
+                    <connections>
+                        <outlet property="profileImage" destination="dyt-lp-iCB" id="f9Q-8Y-2Fq"/>
+                        <outlet property="usernameLabel" destination="IVL-hP-adQ" id="3aG-Ad-BHX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lue-JZ-QNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2647" y="985"/>
+            <point key="canvasLocation" x="2645.5999999999999" y="984.55772113943033"/>
         </scene>
         <!--Home-->
         <scene sceneID="98Y-br-zdv">
@@ -237,7 +244,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="baG-ZR-IC6">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="oup-9u-CuA" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" automaticallyAdjustsScrollViewInsets="NO" id="oup-9u-CuA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fMh-Yi-GLf">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

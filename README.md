@@ -8,12 +8,12 @@ Time spent: **X** hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ] User can sign up to create a new account using Parse authentication (+1pt)
-- [ ] User can log in and log out of his or her account (+1pt)
-- [ ] The current signed in user is persisted across app restarts (+1pt)
-- [ ] User can take a photo, add a caption, and post it to "Instagram" (+2pt)
-- [ ] User can view the last 20 posts submitted to "Instagram" (+2pt)
-- [ ] User can pull to refresh the last 20 posts submitted to "Instagram" (+1pt)
+- [x] User can sign up to create a new account using Parse authentication (+1pt)
+- [x] User can log in and log out of his or her account (+1pt)
+- [x] The current signed in user is persisted across app restarts (+1pt)
+- [x] User can take a photo, add a caption, and post it to "Instagram" (+2pt)
+- [x] User can view the last 20 posts submitted to "Instagram" (+2pt)
+- [x] User can pull to refresh the last 20 posts submitted to "Instagram" (+1pt)
 - [ ] User can tap a post to view post details, including timestamp and caption (+2pt)
 
 The following **stretch** features are implemented:
@@ -27,7 +27,7 @@ The following **stretch** features are implemented:
 - If you use TableView Section Headers to display the the username and creation time, you'll get "sticky headers" similar to the actual Instagram app.
 - [ ] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse (+1pt)
 - User Profiles:
-- [ ] Allow the logged in user to add a profile photo (+2pt)
+- [x] Allow the logged in user to add a profile photo (+2pt)
 - [ ] Display the profile photo with each post (+1pt)
 - [ ] Tapping on a post's username or profile photo goes to that user's profile page (+2pt)
 - [ ] User can comment on a post and see all comments for each post in the post details screen (+3pt)
@@ -39,16 +39,14 @@ The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
 
-Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
-
-1.
-2.
-
+Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc)
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/10QBQUJ.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/PkPxAER.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -65,7 +63,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-Copyright [yyyy] [name of copyright owner]
+Copyright [2018] [Melissa Nguyen]
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
